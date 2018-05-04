@@ -35,7 +35,7 @@ import java.util.StringJoiner;
 /**
  * The Class ObjectJoiner.
  *
- * @author
+ * @author Hotelbeds Group - APItude
  */
 public class ObjectJoiner {
 

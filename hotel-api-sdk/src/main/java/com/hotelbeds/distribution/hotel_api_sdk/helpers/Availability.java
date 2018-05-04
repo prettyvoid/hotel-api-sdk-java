@@ -108,6 +108,8 @@ public class Availability {
     }
 
     private String language;
+    private String sourceMarket;
+
     private Integer platform;
 
     @NotNull
@@ -205,6 +207,8 @@ public class Availability {
         availabilityRQ.setLanguage(language);
         //
         availabilityRQ.setPlatform(platform);
+        //
+        availabilityRQ.setSourceMarket(sourceMarket);
         //
         availabilityRQ.setStay(new Stay(checkIn, checkOut, shiftDays, true));
         //

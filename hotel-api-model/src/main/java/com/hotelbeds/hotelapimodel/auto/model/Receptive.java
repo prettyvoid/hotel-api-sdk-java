@@ -3,7 +3,7 @@
  * Do not edit. Any modification on this file will be removed automatically after project build
  *
  */
-package com.hotelbeds.hotelapimodel.auto.convert.json;
+package com.hotelbeds.hotelapimodel.auto.model;
 
 /*
  * #%L
@@ -28,27 +28,27 @@ package com.hotelbeds.hotelapimodel.auto.convert.json;
  */
 
 
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.ObjectCodec;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonDeserializer;
-import com.fasterxml.jackson.databind.node.TextNode;
-import com.hotelbeds.hotelapimodel.auto.util.AssignUtils;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.io.IOException;
-import java.time.LocalDate;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.Data;
 
-/**
- *
- * Created by joroldan
- */
-public class DateDeserializer extends JsonDeserializer<LocalDate> {
+import javax.xml.bind.annotation.XmlAttribute;
 
-    @Override
-    public LocalDate deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException {
-        ObjectCodec oc = jp.getCodec();
-        TextNode node = oc.readTree(jp);
-        String dateString = node.textValue();
-        return LocalDate.parse(dateString, AssignUtils.REST_FORMATTER);
-    }
+@ToString
+@NoArgsConstructor
+@Data
+public class Receptive {
+    @JsonProperty("code")
+    @XmlAttribute
+    private String companyCode;
+    @JsonProperty("company")
+    @XmlAttribute
+    private String companyName;
+    @JsonProperty("registrationNumber")
+    @XmlAttribute
+    private String registrationNumber;
+
+
 }

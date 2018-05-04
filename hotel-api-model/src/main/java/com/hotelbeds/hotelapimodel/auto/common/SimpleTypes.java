@@ -41,7 +41,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * The Class SimpleTypes.
  *
- * @author Hotelbeds Accommodation and Destination Services
+ * @author Hotelbeds Group - APItude Hotelbeds Group - APItude
  */
 @Slf4j
 public final class SimpleTypes {
@@ -95,7 +95,7 @@ public final class SimpleTypes {
     /**
      * The Enum ChangeMode.
      *
-     * @author
+     * @author Hotelbeds Group - APItude Hotelbeds Group - APItude
      */
     @XmlType(name = "ChangeMode")
     @XmlEnum
@@ -123,7 +123,7 @@ public final class SimpleTypes {
     /**
      * The Enum YesNo.
      *
-     * @author
+     * @author Hotelbeds Group - APItude Hotelbeds Group - APItude
      */
     @XmlType(name = "YesNo")
     @XmlEnum
@@ -226,7 +226,7 @@ public final class SimpleTypes {
     /**
      * The Enum ShowDirectPayment.
      *
-     * @author
+     * @author Hotelbeds Group - APItude Hotelbeds Group - APItude
      */
     public enum ShowDirectPayment {
         //liberate
@@ -291,7 +291,7 @@ public final class SimpleTypes {
     /**
      * The Enum SiNo.
      *
-     * @author
+     * @author Hotelbeds Group - APItude
      */
     public enum SiNo {
         S(SI, YesNo.Y),
@@ -363,7 +363,7 @@ public final class SimpleTypes {
     /**
      * The Enum HotelbedsCustomerType.
      *
-     * @author
+     * @author Hotelbeds Group - APItude
      */
     public enum HotelbedsCustomerType {
         /**
@@ -488,7 +488,7 @@ public final class SimpleTypes {
     /**
      * The Enum HotelbedsTicketClass.
      *
-     * @author
+     * @author Hotelbeds Group - APItude
      */
     public enum HotelbedsTicketClass {
         T,
@@ -498,7 +498,7 @@ public final class SimpleTypes {
     /**
      * The Enum RateType.
      *
-     * @author
+     * @author Hotelbeds Group - APItude
      */
     public enum RateType {
         BOOKABLE,
@@ -508,7 +508,7 @@ public final class SimpleTypes {
     /**
      * The Enum CommissionType.
      *
-     * @author
+     * @author Hotelbeds Group - APItude
      */
     public enum CommissionType {
         LIBERATE_RATE("L"),
@@ -554,7 +554,7 @@ public final class SimpleTypes {
     /**
      * The Enum PaymentType.
      *
-     * @author
+     * @author Hotelbeds Group - APItude
      */
     public enum PaymentType {
         AT_HOTEL("P", "H"),
@@ -621,7 +621,7 @@ public final class SimpleTypes {
     /**
      * The Enum SupplementType.
      *
-     * @author
+     * @author Hotelbeds Group - APItude
      */
     public enum SupplementType {
         SUPPLEMENT("S"),
@@ -663,7 +663,7 @@ public final class SimpleTypes {
     /**
      * The Enum TypeRequestAvail.
      *
-     * @author
+     * @author Hotelbeds Group - APItude
      */
     public enum TypeRequestAvail {
         TYPE_REQUEST_VALUATION_AVAIL,
@@ -673,7 +673,7 @@ public final class SimpleTypes {
     /**
      * The Enum ProviderAvail.
      *
-     * @author
+     * @author Hotelbeds Group - APItude
      */
     public enum ProviderAvail {
         ACE,
@@ -683,7 +683,7 @@ public final class SimpleTypes {
     /**
      * The Enum CancellationFlags.
      *
-     * @author
+     * @author Hotelbeds Group - APItude
      */
     public enum CancellationFlags {
         CANCELLATION("C"),
@@ -721,7 +721,7 @@ public final class SimpleTypes {
     /**
      * The Enum BookingListFilterType.
      *
-     * @author
+     * @author Hotelbeds Group - APItude
      */
     public enum BookingListFilterType {
         //E: busca por fechas de Entrada (Checking)
@@ -765,7 +765,7 @@ public final class SimpleTypes {
     /**
      * The Enum BookingListFilterStatus.
      *
-     * @author
+     * @author Hotelbeds Group - APItude
      */
     public enum BookingListFilterStatus {
         CONFIRMED("N"),
@@ -854,7 +854,7 @@ public final class SimpleTypes {
     /**
      * The Enum HotelCodeType.
      *
-     * @author
+     * @author Hotelbeds Group - APItude
      */
     public enum HotelCodeType {
         HOTELBEDS,
@@ -864,7 +864,7 @@ public final class SimpleTypes {
     /**
      * The Enum ChannelType.
      *
-     * @author
+     * @author Hotelbeds Group - APItude
      */
     public enum ChannelType {
         B2B,
@@ -876,7 +876,7 @@ public final class SimpleTypes {
     /**
      * The Enum DeviceType.
      *
-     * @author
+     * @author Hotelbeds Group - APItude
      */
     public enum DeviceType {
         MOBILE,
@@ -887,7 +887,7 @@ public final class SimpleTypes {
     /**
      * The Enum ReviewsType.
      *
-     * @author
+     * @author Hotelbeds Group - APItude
      */
     public enum ReviewsType {
         TRIPADVISOR("TRIPADVISOR"),
@@ -927,7 +927,7 @@ public final class SimpleTypes {
     /**
      * The Enum AvailabilitySorter.
      *
-     * @author
+     * @author Hotelbeds Group - APItude
      */
     public enum AvailabilitySorter {
         RATE("P"),
@@ -951,15 +951,19 @@ public final class SimpleTypes {
     /**
      * The Enum TaxType.
      *
-     * @author
+     * @author Hotelbeds Group - APItude
      */
     public enum TaxType {
-        TAX("T"),
-        FEE("F");
-        private String internalCode;
+        TAX("T", "TAX"),
+        FEE("F", "FEE"),
+        TAXESANDFEES("T&F", "TAXES & FEES");
 
-        TaxType(String internalCode) {
+        private String internalCode;
+        private String taxTypeDescription;
+
+        TaxType(String internalCode, String taxTypeDescription) {
             this.internalCode = internalCode;
+            this.taxTypeDescription = taxTypeDescription;
         }
 
         /**
@@ -993,7 +997,7 @@ public final class SimpleTypes {
     /**
      * The Enum HotelPackage.
      *
-     * @author
+     * @author Hotelbeds Group - APItude
      */
     public enum HotelPackage {
         YES,
@@ -1004,7 +1008,7 @@ public final class SimpleTypes {
     /**
      * The Enum ShoppingCartStatus.
      *
-     * @author
+     * @author Hotelbeds Group - APItude
      */
     public enum ShoppingCartStatus {
         NEW(INTERNAL_STATUS_NEW),
@@ -1051,7 +1055,7 @@ public final class SimpleTypes {
     /**
      * The Enum PriceFilterType.
      *
-     * @author
+     * @author Hotelbeds Group - APItude
      */
     public enum PriceFilterType {
         TOTAL("Total"),

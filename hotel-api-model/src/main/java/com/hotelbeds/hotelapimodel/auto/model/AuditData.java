@@ -9,7 +9,7 @@ package com.hotelbeds.hotelapimodel.auto.model;
  * #%L
  * HotelAPI Model
  * %%
- * Copyright (C) 2015 - 2018 HOTELBEDS GROUP, S.L.U.
+ * Copyright (C) 2015 - 2018 HOTELBEDS TECHNOLOGY, S.L.U.
  * %%
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -32,15 +32,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import java.time.format.DateTimeFormatter;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 
 import lombok.ToString;
 import lombok.NoArgsConstructor;
 import lombok.Data;
 
-@XmlAccessorType(XmlAccessType.FIELD)
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @ToString
@@ -48,19 +44,12 @@ import lombok.Data;
 @Data
 public class AuditData {
 
-    @XmlAttribute
     private String processTime;
-    @XmlAttribute
     private String timestamp;
-    @XmlAttribute
     private String requestHost;
-    @XmlAttribute
     private String serverId;
-    @XmlAttribute
     private String environment;
-    @XmlAttribute
     private String release;
-    @XmlAttribute
     private String token;
 
 

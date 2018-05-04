@@ -90,7 +90,7 @@ public class Hotel {
     @XmlAttribute
     private String image;
     @XmlAttribute
-    private Boolean preferential;
+    private Integer exclusiveDeal;
     @XmlAttribute
     private String categoryCode;
     @XmlAttribute
@@ -145,6 +145,9 @@ public class Hotel {
     @XmlAttribute
     private BigDecimal cancellationAmount;
     private Upselling upselling;
+    @JsonProperty("paymentDataRequired")
+    @XmlAttribute
+    private Boolean isPaymentDataRequired;
 
 
 }

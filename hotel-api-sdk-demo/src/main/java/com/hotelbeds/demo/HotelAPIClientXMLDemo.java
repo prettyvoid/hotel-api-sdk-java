@@ -30,6 +30,7 @@ import com.hotelbeds.distribution.hotel_api_sdk.helpers.Booking.BookingBuilder;
 import com.hotelbeds.distribution.hotel_api_sdk.helpers.ConfirmRoom.ConfirmRoomBuilder;
 import com.hotelbeds.distribution.hotel_api_sdk.helpers.RoomDetail.GuestType;
 import com.hotelbeds.distribution.hotel_api_sdk.types.HotelApiSDKException;
+import com.hotelbeds.distribution.hotel_api_sdk.types.HotelApiService;
 import com.hotelbeds.distribution.hotel_api_sdk.types.RequestType;
 import com.hotelbeds.hotelapimodel.auto.common.SimpleTypes;
 import com.hotelbeds.hotelapimodel.auto.common.SimpleTypes.BookingListFilterStatus;
@@ -162,6 +163,7 @@ public class HotelAPIClientXMLDemo {
                 if (availabilityRS != null && availabilityRS.getHotels() != null && availabilityRS.getHotels().getHotels() != null) {
                     log.info("Availability answered with {} hotels!", availabilityRS.getHotels().getHotels().size());
                     log.debug("AvailabilityRS: {}", LoggingRequestInterceptor.write(availabilityRS, RequestType.XML));
+                    //log.info("Tax breakdown: {}", availabilityRS.getHotels().getHotels().get(0).getRooms().get(0).getRates().get(0).getTaxes()); //only for LIVE and specific apikeys
                 } else {
                     log.info("No availability!");
                 }
@@ -232,6 +234,7 @@ public class HotelAPIClientXMLDemo {
                             BookingRS bookingRS = apiClient.confirm(booking, RequestType.XML);
                             if (bookingRS != null) {
                                 log.debug("BookingRS: {}", LoggingRequestInterceptor.write(bookingRS, RequestType.XML));
+                                log.info("Invoice: {}", bookingRS.getBooking().getInvoiceCompany());
                             }
 
                             if (bookingRS.getBooking() != null) {
@@ -242,19 +245,15 @@ public class HotelAPIClientXMLDemo {
                                 rooms.get(0).getPaxes().get(0).setSurname("NewPaxSurname");
                                 rooms.get(0).getPaxes().get(0).setName("NewPaxName");
                                 BookingChange bookingChangeBuilder =
-                                        BookingChange.builder().fromBookingRS()
-                                                .booking(bookingRS.getBooking())
-                                                .mode(SimpleTypes.ChangeMode.UPDATE)
-                                                .bookingId(bookingRS.getBooking().getReference())
-                                                .clientReference("NewClientReference")
-                                                .holder(holder)
-                                                .remark("NewRemark")
-                                                //.checkin(LocalDate.now().plusDays(60))
-                                                //.checkout(LocalDate.now().plusDays(62))
-                                                .rooms(rooms)
-                                                .build();
+                                    BookingChange.builder().fromBookingRS().booking(bookingRS.getBooking()).mode(SimpleTypes.ChangeMode.UPDATE)
+                                        .bookingId(bookingRS.getBooking().getReference()).clientReference("NewClientReference").holder(holder)
+                                        .remark("NewRemark")
+                                        //.checkin(LocalDate.now().plusDays(60))
+                                        //.checkout(LocalDate.now().plusDays(62))
+                                        .rooms(rooms).build();
                                 //log.debug("bookingChangeBuilder: {}", LoggingRequestInterceptor.write(bookingChangeBuilder, RequestType.XML));
-                                BookingChangeRS bookingChangeRS = apiClient.change(bookingRS.getBooking().getReference(),  bookingChangeBuilder.toBookingRQ(), RequestType.XML);
+                                BookingChangeRS bookingChangeRS =
+                                    apiClient.change(bookingRS.getBooking().getReference(), bookingChangeBuilder.toBookingRQ(), RequestType.XML);
                                 log.debug("BookingChangeRS: {}", LoggingRequestInterceptor.write(bookingChangeRS, RequestType.XML));
                             } else {
                                 log.info("BookingChange failed");
@@ -262,7 +261,8 @@ public class HotelAPIClientXMLDemo {
 
                             if (bookingRS.getBooking() != null) {
                                 log.info("Confirmation succedded. Canceling reservation with id {}", bookingRS.getBooking().getReference());
-                                BookingCancellationRS bookingCancellationRS = apiClient.cancel(bookingRS.getBooking().getReference(), RequestType.XML);
+                                BookingCancellationRS bookingCancellationRS =
+                                    apiClient.cancel(bookingRS.getBooking().getReference(), RequestType.XML);
                                 if (bookingCancellationRS != null) {
                                     log.debug("BookingCancellationRS: {}", LoggingRequestInterceptor.write(bookingCancellationRS, RequestType.XML));
                                 }
@@ -302,8 +302,8 @@ public class HotelAPIClientXMLDemo {
                     }));
                 }
             }
-        }catch (HotelApiSDKException e){
-            log.error("ERROR!",e);
+        } catch (HotelApiSDKException e) {
+            log.error("ERROR!", e);
         }
     }
 }

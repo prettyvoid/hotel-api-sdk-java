@@ -9,7 +9,7 @@ package com.hotelbeds.hotelapimodel.auto.model;
  * #%L
  * HotelAPI Model
  * %%
- * Copyright (C) 2015 - 2018 HOTELBEDS GROUP, S.L.U.
+ * Copyright (C) 2015 - 2018 HOTELBEDS TECHNOLOGY, S.L.U.
  * %%
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -37,10 +37,10 @@ import com.hotelbeds.hotelapimodel.auto.common.SimpleTypes.ShoppingCartStatus;
 import com.hotelbeds.hotelapimodel.auto.convert.json.DateDeserializer;
 import com.hotelbeds.hotelapimodel.auto.convert.json.DateSerializer;
 import com.hotelbeds.hotelapimodel.auto.convert.json.RateSerializer;
-import com.hotelbeds.hotelapimodel.auto.messages.BookingRS;
 import com.hotelbeds.hotelapimodel.auto.model.Holder;
 import com.hotelbeds.hotelapimodel.auto.model.Hotel;
 import com.hotelbeds.hotelapimodel.auto.model.ModificationPolicies;
+import com.hotelbeds.hotelapimodel.auto.model.Receptive;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import javax.validation.Valid;
@@ -59,7 +59,7 @@ import lombok.Data;
 @ToString
 @NoArgsConstructor
 @Data
-public class Booking extends BookingRS {
+public class Booking {
 
     @XmlAttribute
     private String reference;
@@ -94,6 +94,8 @@ public class Booking extends BookingRS {
     @XmlElement
     @Size(min = 0, max = 2000, message = "{javax.validation.constraints.Size.message}")
     private String remark;
+    @XmlElement
+    private Receptive invoiceCompany;
     @XmlAttribute
     private BigDecimal totalSellingRate;
     @XmlAttribute
