@@ -861,12 +861,12 @@ public class HotelApiClient implements AutoCloseable {
                     if (response.headers().get(CONTENT_TYPE_HEADER).toLowerCase().startsWith(HotelApiClient.APPLICATION_JSON_HEADER)) {
                         GenericResponse genericResponse = transformToGenericResponse(theContent, path.getResponseClass());
                         if (genericResponse.getError() != null) {
-                            throw new HotelApiSDKException(genericResponse.getError());
+                            throw new HotelApiSDKException(genericResponse.getError(), theContent);
                         }
                         return genericResponse;
                     } else {
                         throw new HotelApiSDKException(new HotelbedsError("Invalid response", "Wrong content type"
-                            + response.headers().get(CONTENT_TYPE_HEADER)));
+                            + response.headers().get(CONTENT_TYPE_HEADER)), theContent);
                     }
                 }
             } catch (HotelApiSDKException e) {
@@ -938,12 +938,12 @@ public class HotelApiClient implements AutoCloseable {
                     if (response.headers().get(CONTENT_TYPE_HEADER).toLowerCase().startsWith(HotelApiClient.APPLICATION_JSON_HEADER)) {
                         AbstractGenericContentResponse genericResponse = transformToGenericContentResponse(theContent, type.getResponseClass());
                         if (genericResponse.getError() != null) {
-                            throw new HotelApiSDKException(genericResponse.getError());
+                            throw new HotelApiSDKException(genericResponse.getError(), theContent);
                         }
                         return genericResponse;
                     } else {
                         throw new HotelApiSDKException(new HotelbedsError("Invalid response", "Wrong content type"
-                            + response.headers().get(CONTENT_TYPE_HEADER)));
+                            + response.headers().get(CONTENT_TYPE_HEADER)), theContent);
                     }
                 }
             } catch (HotelApiSDKException e) {

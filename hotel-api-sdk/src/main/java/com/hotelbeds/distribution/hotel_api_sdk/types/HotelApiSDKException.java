@@ -33,23 +33,32 @@ public class HotelApiSDKException extends Exception {
     public static final long serialVersionUID = 1L;
 
     private final HotelbedsError error;
+    private String rawHttpResponse;
 
-    public HotelApiSDKException(com.hotelbeds.hotelapimodel.auto.messages.HotelbedsError error) {
-        this(new HotelbedsError(error.getCode(), error.getMessage()));
+    public HotelApiSDKException(com.hotelbeds.hotelapimodel.auto.messages.HotelbedsError error, String rawHttpResponse) {
+        this(new HotelbedsError(error.getCode(), error.getMessage()), rawHttpResponse);
     }
 
-    public HotelApiSDKException(com.hotelbeds.hotelcontentapi.auto.messages.HotelbedsError error) {
-        this(new HotelbedsError(error.getCode(), error.getMessage()));
+    public HotelApiSDKException(com.hotelbeds.hotelcontentapi.auto.messages.HotelbedsError error, String rawHttpResponse) {
+        this(new HotelbedsError(error.getCode(), error.getMessage()), rawHttpResponse);
+    }
+
+    public HotelApiSDKException(HotelbedsError error, String rawHttpResponse) {
+        this(error, null, rawHttpResponse);
     }
 
     public HotelApiSDKException(HotelbedsError error) {
-        this(error, null);
+        this(error, null, null);
+    }
+
+    public HotelApiSDKException(HotelbedsError error, Throwable throwable, String rawHttpResponse) {
+        super("HotelSDKException (Error " + error.getCode() + " while performing operation", throwable);
+        this.error = error;
+        this.rawHttpResponse = rawHttpResponse;
     }
 
     public HotelApiSDKException(HotelbedsError error, Throwable throwable) {
         super("HotelSDKException (Error " + error.getCode() + " while performing operation", throwable);
         this.error = error;
     }
-
-
 }

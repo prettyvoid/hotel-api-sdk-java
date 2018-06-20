@@ -36,6 +36,10 @@ public class HotelbedsError {
 
     private String code;
     private String message;
+    private String raw;
 
-
+    public HotelbedsError(String code, String message) {
+        this.code = code;
+        this.message = message;
+    }
 }
