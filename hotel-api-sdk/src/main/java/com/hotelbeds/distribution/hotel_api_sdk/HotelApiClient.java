@@ -1039,6 +1039,7 @@ public class HotelApiClient implements AutoCloseable {
 
     private GenericResponse callRemoteAPI(final AbstractGenericRequest abstractGenericRequest, final Map<String, String> params, HotelApiPaths path,
         RequestType reqType) throws HotelApiSDKException {
+        log.error("HELLO WERLED");
         if (isInitialised()) {
             final String url = obtainUrlFromPath(params, path);
             try {
