@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.hotelbeds</groupId>
-  <artifactId>hotel-api-sdk-java-triphop</artifactId>
+  <artifactId>hotel-api-sdk-java</artifactId>
   <packaging>pom</packaging>
   <version>0.14-SNAPSHOT</version>
   <name>hotel-api-sdk</name>
@@ -137,34 +137,34 @@
             </execution>
           </executions>
         </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-javadoc-plugin</artifactId>
-          <version>2.9.1</version>
-          <configuration>
-            <locale>en</locale>
-            <show>public</show>
-            <nohelp>true</nohelp>
-            <notimestamp>true</notimestamp>
-            <header>${project.name}, ${project.version}</header>
-            <footer>${project.name}, ${project.version}</footer>
-            <doctitle>${project.name}, ${project.version}</doctitle>
-            <outputDirectory>../${apidocs.project.location}/${project.artifactId}/${project.version}</outputDirectory>
-            <reportOutputDirectory>../${apidocs.project.location}/${project.artifactId}/${project.version}</reportOutputDirectory>
-            <links>
-              <link>http://hotelbeds-sdk.github.io/hotel-api-sdk-java/${project.artifactId}/${project.version}/apidocs/</link>
-            </links>
-            <sourcepath>target/generated-sources/delombok</sourcepath>
-          </configuration>
-          <executions>
-            <execution>
-              <id>attach-javadocs</id>
-              <goals>
-                <goal>jar</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
+        <!--<plugin>-->
+          <!--<groupId>org.apache.maven.plugins</groupId>-->
+          <!--<artifactId>maven-javadoc-plugin</artifactId>-->
+          <!--<version>2.9.1</version>-->
+          <!--<configuration>-->
+            <!--<locale>en</locale>-->
+            <!--<show>public</show>-->
+            <!--<nohelp>true</nohelp>-->
+            <!--<notimestamp>true</notimestamp>-->
+            <!--<header>${project.name}, ${project.version}</header>-->
+            <!--<footer>${project.name}, ${project.version}</footer>-->
+            <!--<doctitle>${project.name}, ${project.version}</doctitle>-->
+            <!--<outputDirectory>../${apidocs.project.location}/${project.artifactId}/${project.version}</outputDirectory>-->
+            <!--<reportOutputDirectory>../${apidocs.project.location}/${project.artifactId}/${project.version}</reportOutputDirectory>-->
+            <!--<links>-->
+              <!--<link>http://hotelbeds-sdk.github.io/hotel-api-sdk-java/${project.artifactId}/${project.version}/apidocs/</link>-->
+            <!--</links>-->
+            <!--<sourcepath>target/generated-sources/delombok</sourcepath>-->
+          <!--</configuration>-->
+          <!--<executions>-->
+            <!--<execution>-->
+              <!--<id>attach-javadocs</id>-->
+              <!--<goals>-->
+                <!--<goal>jar</goal>-->
+              <!--</goals>-->
+            <!--</execution>-->
+          <!--</executions>-->
+        <!--</plugin>-->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-gpg-plugin</artifactId>
