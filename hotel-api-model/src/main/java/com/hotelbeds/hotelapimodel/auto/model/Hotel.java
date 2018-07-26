@@ -86,6 +86,6 @@ public class Hotel {
     private String clientComments;
     private BigDecimal cancellationAmount;
     private Upselling upselling;
-
+    private Integer exclusiveDeal;
 
 }

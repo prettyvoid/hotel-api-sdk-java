@@ -102,6 +102,6 @@ public class Hotel {
     private String web;
     @JsonProperty("S2C")
     private String sureToCare;
-
+    private Integer exclusiveDeal;
 
 }
