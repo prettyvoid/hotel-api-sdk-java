@@ -68,6 +68,7 @@ public class Hotel {
     private Content description;
     private String countryCode;
     private Country country;
+    private State state;
     private String destinationCode;
     private Short zoneCode;
     private Destination destination;
