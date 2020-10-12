@@ -30,6 +30,7 @@ package com.hotelbeds.hotelcontentapi.auto.messages;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.hotelbeds.hotelcontentapi.auto.messages.CodedElement;
 import com.hotelbeds.hotelcontentapi.auto.messages.HotelRoomFacility;
 import com.hotelbeds.hotelcontentapi.auto.messages.HotelRoomStay;
@@ -53,6 +54,6 @@ public class HotelRoom {
     private CodedElement characteristic;
     private List<HotelRoomFacility> roomFacilities;
     private List<HotelRoomStay> roomStays;
-
-
+    @JsonProperty("PMSRoomCode")
+    private String PMSRoomCode;
 }
