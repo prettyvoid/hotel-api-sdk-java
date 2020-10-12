@@ -4,7 +4,7 @@
   <groupId>com.hotelbeds</groupId>
   <artifactId>hotel-api-sdk-java</artifactId>
   <packaging>pom</packaging>
-  <version>0.13-final-SNAPSHOT</version>
+  <version>0.13-12Feb2019</version>
   <name>hotel-api-sdk</name>
   <url>https://github.com/hotelbeds-sdk/hotel-api-sdk-java</url>
   <licenses>
@@ -182,7 +182,6 @@
         <plugin>
           <groupId>org.projectlombok</groupId>
           <artifactId>lombok-maven-plugin</artifactId>
-          <version>1.16.6.1</version>
           <executions>
             <execution>
               <id>delombok</id>

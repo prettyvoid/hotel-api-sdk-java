@@ -2,7 +2,7 @@
   <parent>
     <groupId>com.hotelbeds</groupId>
     <artifactId>hotel-api-sdk-java</artifactId>
-	<version>0.13-final-SNAPSHOT</version>
+	<version>0.13-12Feb2019</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.hotelbeds.hotel-api-sdk-java</groupId>
@@ -20,7 +20,7 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.16.4</version>
+      <version>RELEASE</version>
     </dependency>
     <dependency>
       <groupId>org.jooq</groupId>
@@ -51,18 +51,18 @@
   <!-- It is duplicated so you can easily replicate this project without having to duplicate the whole structure -->
   <build>
     <plugins>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>license-maven-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>net.revelc.code</groupId>
-        <artifactId>formatter-maven-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-      </plugin>
+<!--      <plugin>-->
+<!--        <groupId>org.codehaus.mojo</groupId>-->
+<!--        <artifactId>license-maven-plugin</artifactId>-->
+<!--      </plugin>-->
+<!--      <plugin>-->
+<!--        <groupId>net.revelc.code</groupId>-->
+<!--        <artifactId>formatter-maven-plugin</artifactId>-->
+<!--      </plugin>-->
+<!--      <plugin>-->
+<!--        <groupId>org.apache.maven.plugins</groupId>-->
+<!--        <artifactId>maven-javadoc-plugin</artifactId>-->
+<!--      </plugin>-->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>

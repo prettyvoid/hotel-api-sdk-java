@@ -2,7 +2,7 @@
   <parent>
     <groupId>com.hotelbeds</groupId>
     <artifactId>hotel-api-sdk-java</artifactId>
-    <version>0.13-final-SNAPSHOT</version>
+    <version>0.13-12Feb2019</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.hotelbeds.hotel-api-sdk-java</groupId>
@@ -50,7 +50,7 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.16.6</version>
+      <version>RELEASE</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
