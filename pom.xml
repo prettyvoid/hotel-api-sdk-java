@@ -137,34 +137,35 @@
             </execution>
           </executions>
         </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-javadoc-plugin</artifactId>
-          <version>2.9.1</version>
-          <configuration>
-            <locale>en</locale>
-            <show>public</show>
-            <nohelp>true</nohelp>
-            <notimestamp>true</notimestamp>
-            <header>${project.name}, ${project.version}</header>
-            <footer>${project.name}, ${project.version}</footer>
-            <doctitle>${project.name}, ${project.version}</doctitle>
-            <outputDirectory>../${apidocs.project.location}/${project.artifactId}/${project.version}</outputDirectory>
-            <reportOutputDirectory>../${apidocs.project.location}/${project.artifactId}/${project.version}</reportOutputDirectory>
-            <links>
-              <link>http://hotelbeds-sdk.github.io/hotel-api-sdk-java/${project.artifactId}/${project.version}/apidocs/</link>
-            </links>
-            <sourcepath>target/generated-sources/delombok</sourcepath>
-          </configuration>
-          <executions>
-            <execution>
-              <id>attach-javadocs</id>
-              <goals>
-                <goal>jar</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
+<!--        <plugin>-->
+<!--          <groupId>org.apache.maven.plugins</groupId>-->
+<!--          <artifactId>maven-javadoc-plugin</artifactId>-->
+<!--          <version>2.9.1</version>-->
+<!--          <configuration>-->
+<!--            <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>-->
+<!--            <locale>en</locale>-->
+<!--            <show>public</show>-->
+<!--            <nohelp>true</nohelp>-->
+<!--            <notimestamp>true</notimestamp>-->
+<!--            <header>${project.name}, ${project.version}</header>-->
+<!--            <footer>${project.name}, ${project.version}</footer>-->
+<!--            <doctitle>${project.name}, ${project.version}</doctitle>-->
+<!--            <outputDirectory>../${apidocs.project.location}/${project.artifactId}/${project.version}</outputDirectory>-->
+<!--            <reportOutputDirectory>../${apidocs.project.location}/${project.artifactId}/${project.version}</reportOutputDirectory>-->
+<!--            <links>-->
+<!--              <link>http://hotelbeds-sdk.github.io/hotel-api-sdk-java/${project.artifactId}/${project.version}/apidocs/</link>-->
+<!--            </links>-->
+<!--            <sourcepath>target/generated-sources/delombok</sourcepath>-->
+<!--          </configuration>-->
+<!--          <executions>-->
+<!--            <execution>-->
+<!--              <id>attach-javadocs</id>-->
+<!--              <goals>-->
+<!--                <goal>jar</goal>-->
+<!--              </goals>-->
+<!--            </execution>-->
+<!--          </executions>-->
+<!--        </plugin>-->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-gpg-plugin</artifactId>
@@ -204,7 +205,7 @@
     </pluginManagement>
   </build>
   <properties>
-    <java-version>1.8</java-version>
+    <java-version>13</java-version>
     <license.organizationName>HOTELBEDS TECHNOLOGY, S.L.U.</license.organizationName>
     <license.inceptionYear>2015</license.inceptionYear>
     <!-- Default property where one can find the GitHub pages version of the repository (gh-pages branch) -->
